@@ -15,12 +15,16 @@ public class MoneyBoy {
         days = new ArrayList<>();
     }
 
-    public MoneyBoy(MoneyBoy prev){
-        days = prev.getSpreadsheet();
+    public MoneyBoy(MoneyBoy existing){
+        days = existing.getSpreadsheet();
     }
 
     public ArrayList<Day> getSpreadsheet(){
         return new ArrayList<>(days);
+    }
+
+    public String toString(){
+
     }
 
 }

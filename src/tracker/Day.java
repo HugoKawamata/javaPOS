@@ -11,16 +11,16 @@ import java.util.Date;
  */
 public class Day {
 
-    Double take;
-    Double hugo;
-    Double jess;
-    Double kate;
-    Double tim;
-    Double totalWages;
-    Double profit;
-    Calendar c;
-    Date date;
-    int day;
+    private Double take;
+    private Double hugo;
+    private Double jess;
+    private Double kate;
+    private Double tim;
+    private Double totalWages;
+    private Double profit;
+    private Calendar c;
+    private Date date;
+    private int day;
 
     public Day(){
         take = 0.0;
@@ -42,6 +42,10 @@ public class Day {
         take += money;
     }
 
+    public Double getProfit(){
+        return profit;
+    }
+
     public String getDay(){
         switch(day){
             case 1: return "Sunday";
@@ -58,5 +62,17 @@ public class Day {
     public String getDate(){
         DateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
         return dateformat.format(date);
+    }
+
+    public String toString(){
+        return getDate() + "," +
+                getDay() + "," +
+                take.toString() + "," +
+                hugo.toString() + "," +
+                jess.toString() + "," +
+                kate.toString() + "," +
+                tim.toString() + "," +
+                totalWages.toString() + "," +
+                profit.toString() + ",";
     }
 }
