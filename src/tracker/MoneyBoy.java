@@ -9,22 +9,29 @@ import java.util.List;
  */
 public class MoneyBoy {
 
-    private ArrayList<Day> days;
+    private ArrayList<Week> weeks;
 
     public MoneyBoy(){
-        days = new ArrayList<>();
+        weeks = new ArrayList<>();
     }
 
     public MoneyBoy(MoneyBoy existing){
-        days = existing.getSpreadsheet();
+        weeks = existing.getSpreadsheet();
     }
 
-    public ArrayList<Day> getSpreadsheet(){
-        return new ArrayList<>(days);
+
+    public ArrayList<Week> getSpreadsheet(){
+        return new ArrayList<>(weeks);
     }
 
     public String toString(){
-
+        String result = "";
+        for (Week week : weeks){
+            result += week.toString();
+        }
+        return result;
     }
+
+
 
 }

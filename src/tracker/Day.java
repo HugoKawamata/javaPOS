@@ -18,15 +18,37 @@ public class Day {
     private Double tim;
     private Double totalWages;
     private Double profit;
-    private Calendar c;
-    private Date date;
-    private int day;
+    private String date;
+    private String day;
 
+    // Converts the current calendar point into a day and date string
     public Day(){
         take = 0.0;
-        c = Calendar.getInstance();
-        date = c.getTime();
-        day = c.get(Calendar.DAY_OF_WEEK);
+        Calendar c = Calendar.getInstance();
+        DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+        date = dateformat.format(c.getTime());
+        day = "UNKNOWN";
+        switch(c.get(Calendar.DAY_OF_WEEK)){
+            case 1: day = "Sunday";
+            case 2: day = "Monday";
+            case 3: day = "Tuesday";
+            case 4: day = "Wednesday";
+            case 5: day = "Thursday";
+            case 6: day = "Friday";
+            case 7: day = "Saturday";
+        }
+    }
+
+    public Day(Double take, Double hugo, Double jess, Double kate, Double tim, Double totalWages, Double profit, String date, String day){
+        this.take = take;
+        this.hugo = hugo;
+        this.jess = jess;
+        this.kate = kate;
+        this.tim = tim;
+        this.totalWages = totalWages;
+        this.profit = profit;
+        this.date = date;
+        this.day = day;
     }
 
     public void setWages(Double hugo, Double jess, Double kate, Double tim){
@@ -47,32 +69,23 @@ public class Day {
     }
 
     public String getDay(){
-        switch(day){
-            case 1: return "Sunday";
-            case 2: return "Monday";
-            case 3: return "Tuesday";
-            case 4: return "Wednesday";
-            case 5: return "Thursday";
-            case 6: return "Friday";
-            case 7: return "Saturday";
-        }
-        return "UNKNOWN";
+        return day;
     }
 
     public String getDate(){
-        DateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
-        return dateformat.format(date);
+        return date;
     }
 
     public String toString(){
-        return getDate() + "," +
-                getDay() + "," +
+        return date + "," +
+                day + "," +
                 take.toString() + "," +
                 hugo.toString() + "," +
                 jess.toString() + "," +
                 kate.toString() + "," +
                 tim.toString() + "," +
                 totalWages.toString() + "," +
-                profit.toString() + ",";
+                profit.toString() + "," +
+                System.getProperty("line.separator");
     }
 }

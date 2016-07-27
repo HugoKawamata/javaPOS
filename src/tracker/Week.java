@@ -11,7 +11,7 @@ import java.util.Date;
 public class Week {
 
     private ArrayList<Day> days;
-    private Date mondayDate;
+    private String mondayDate;
     private Double weeklyProfit;
 
     public Week(){
@@ -38,8 +38,12 @@ public class Week {
         // Add each profit from each day
         for (Day day : getDays()){
             weeklyProfit += day.getProfit();
+            if (day.getDay().equals("Monday")){
+                mondayDate = day.getDate();
+            }
         }
     }
+
 
     public ArrayList<Day> getDays(){
         return new ArrayList<>(days);
